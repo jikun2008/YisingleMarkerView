@@ -49,7 +49,7 @@ publish {
     artifactId = 'markerlibrary'        // 依赖名compile 'x:y:z'中的项目名y
     publishVersion = '0.0.1'          // 依赖名compile 'x:y:z'中的版本号z
     desc = 'marker use on map'            // 对该开源组件的说明
-    website = ''  // VCS地址，即填写项目上传的Github地址
+    website = 'https://github.com/jikun2008/YisingleMarkerView.git'  // VCS地址，即填写项目上传的Github地址
 }
 
 // 特别注意：保持你的library module的名字同artifactId一样
