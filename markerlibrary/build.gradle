@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+//<-- 配置代码 --> 配置1
+// 添加bintray插件
+apply plugin: 'com.novoda.bintray-release'
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    //忽略错误信息
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+
+// 配置2
+publish {
+    userOrg = 'jikun2008'             // Binary用户名
+    repoName = 'markerView'           // Binary上的刚才新建的仓库名（Repository）
+    groupId = 'com.yisingle.map.maker'        // 依赖名compile 'x:y:z'中的包名x
+    artifactId = 'markerlibrary'        // 依赖名compile 'x:y:z'中的项目名y
+    publishVersion = '0.0.1'          // 依赖名compile 'x:y:z'中的版本号z
+    desc = 'marker use on map'            // 对该开源组件的说明
+    website = ''  // VCS地址，即填写项目上传的Github地址
+}
+
+// 特别注意：保持你的library module的名字同artifactId一样
+// 1. 背景
+// 在Bintray上你的项目的maven-metadata.xml文件的路径=gruopId+"/"+module名称
+// 如你的groupId=scut.carson_ho，artifactId是CircileView，但module名称是circlelibrary
+// 此时，项目文件在scut.carson_ho.CircileView目录下的，但maven-metadata.xml文件却是在scut.carson_ho.circlelibrary目录下的。
+// 2. 冲突：若你有多个项目groupId一样 & artifactId不一样，但module名称都是library的话，maven-metadata.xml文件的地址可能会一样，即都是：gruopId+"/"+module名称，那么就可能产生冲突
+// 3. 解决方案：保持module名称和artifactId一致
+
