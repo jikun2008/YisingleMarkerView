@@ -7,15 +7,11 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-
-
-        //用于打包Maven所需文件
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        //用于上传Maven生成的文件到Bintray
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+
     }
 }
 
@@ -28,23 +24,7 @@ allprojects {
 
 }
 
-// 配置2
-allprojects {
-    tasks.withType(Javadoc) {
-        options.addStringOption('Xdoclint:none', '-quiet')
-        options.addStringOption('encoding', 'UTF-8')
-    }
-}
 
-allprojects {
-    tasks.withType(Javadoc) {
-        options{
-            encoding "UTF-8"
-            charSet 'UTF-8'
-            links "http://docs.oracle.com/javase/7/docs/api"
-        }
-    }
-}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
@@ -54,6 +34,6 @@ ext {
     compileSdkVersion = 28
     minSdkVersion = 14
     targetSdkVersion = 28
-    versionCode = 1
-    versionName = "1.0"
+    versionCode = 2
+    versionName = "1.0.1"
 }
