@@ -34,7 +34,6 @@ public class MainActivity extends BaseMapActivity {
 
 
         startPointMarkerView = new PointMarkerView.Builder(getApplicationContext(), getAmap())
-                .setText("文本信息start")
                 .setPosition(startlatLng)
                 .setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.amap_start))
                 .create();
@@ -50,7 +49,6 @@ public class MainActivity extends BaseMapActivity {
 
 
         endMarkerView = new PointMarkerView.Builder(getApplicationContext(), getAmap())
-                .setText("文本信息start")
                 .setPosition(endlatLng)
                 .setIcon(BitmapDescriptorFactory.fromResource(R.mipmap.amap_end))
                 .setAnchor(0.5f, 1)
