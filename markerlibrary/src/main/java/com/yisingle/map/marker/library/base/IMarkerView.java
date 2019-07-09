@@ -1,8 +1,6 @@
 package com.yisingle.map.marker.library.base;
 
 
-import android.support.annotation.NonNull;
-
 import com.yisingle.map.marker.library.marker.BaseMarkerView;
 
 
@@ -18,7 +16,7 @@ public interface IMarkerView<W> {
      *
      * @param infoWindowView BaseInfoWindowView
      */
-    void bindInfoWindowView(@NonNull BaseMarkerView.BaseInfoWindowView<W> infoWindowView);
+    void bindInfoWindowView(BaseMarkerView.BaseInfoWindowView<W> infoWindowView);
 
 
     /**

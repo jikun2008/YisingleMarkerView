@@ -1,7 +1,6 @@
 package com.yisingle.map.marker.library.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.model.LatLng;
@@ -17,7 +16,7 @@ import com.yisingle.map.marker.library.param.PointMarkerParam;
 public class PointMarkerView<W> extends BaseMarkerView<PointMarkerParam, W> {
 
 
-    private PointMarkerView(@NonNull Context context, @NonNull AMap amap, @NonNull PointMarkerParam param) {
+    private PointMarkerView(Context context, AMap amap, PointMarkerParam param) {
         super(context, amap, param);
     }
 
@@ -90,7 +89,7 @@ public class PointMarkerView<W> extends BaseMarkerView<PointMarkerParam, W> {
     public final static class Builder extends BaseMarkerBuilder<Builder, PointMarkerParam> {
 
 
-        public Builder(@NonNull Context context, @NonNull AMap map) {
+        public Builder(Context context, AMap map) {
             super(context, map);
 
 

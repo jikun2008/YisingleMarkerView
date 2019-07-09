@@ -1,7 +1,7 @@
 package com.yisingle.map.marker.library.base;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
 
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.model.BitmapDescriptor;
@@ -22,7 +22,7 @@ public abstract class BaseMarkerBuilder<T, D extends BaseMarkerParam> extends Ba
     private D param;
 
 
-    public BaseMarkerBuilder(@NonNull Context context, @NonNull AMap map) {
+    public BaseMarkerBuilder(Context context, AMap map) {
         super(context, map);
 
         build = getChild();

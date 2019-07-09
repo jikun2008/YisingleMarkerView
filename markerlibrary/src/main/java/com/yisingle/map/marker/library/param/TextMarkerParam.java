@@ -2,25 +2,18 @@ package com.yisingle.map.marker.library.param;
 
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntDef;
-import android.support.annotation.IntRange;
 import android.text.TextPaint;
 
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.MarkerOptions;
-
 import com.yisingle.map.marker.library.R;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 
 /**
  * @author jikun
  * Created by jikun on 2018/5/16.
  */
 public class TextMarkerParam extends BaseMarkerParam {
-    private @TextAlign
+    private
     int align;
 
     private int maxTextLength = 6;
@@ -81,12 +74,11 @@ public class TextMarkerParam extends BaseMarkerParam {
         align = TextAlign.LEFT;
     }
 
-    public @TextAlign
-    int getAlign() {
+    public int getAlign() {
         return align;
     }
 
-    public void setAlign(@TextAlign int align) {
+    public void setAlign(int align) {
         this.align = align;
     }
 
@@ -142,7 +134,10 @@ public class TextMarkerParam extends BaseMarkerParam {
         return textRowSpaceMult;
     }
 
-    public void setTextRowSpaceMult(@FloatRange(from = 1f) float textRowSpaceMult) {
+    /**
+     * @param textRowSpaceMult --@FloatRange(from = 1f)
+     */
+    public void setTextRowSpaceMult(float textRowSpaceMult) {
         this.textRowSpaceMult = textRowSpaceMult;
     }
 
@@ -150,7 +145,10 @@ public class TextMarkerParam extends BaseMarkerParam {
         return textRowSpaceAdd;
     }
 
-    public void setTextRowSpaceAdd(@IntRange(from = 0) int textRowSpaceAdd) {
+    /**
+     * @param textRowSpaceAdd --@IntRange(from = 0)
+     */
+    public void setTextRowSpaceAdd(int textRowSpaceAdd) {
         this.textRowSpaceAdd = textRowSpaceAdd;
     }
 
@@ -165,9 +163,9 @@ public class TextMarkerParam extends BaseMarkerParam {
 
     //添加支持注解的依赖到你的项目中，需要在build.gradle文件中的依赖块中添加：
     //dependencies { compile 'com.android.support:support-annotations:24.2.0' }
-    @IntDef({TextAlign.LEFT, TextAlign.CENTER, TextAlign.RIGHT})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface TextAlign {
+//    @IntDef({TextAlign.LEFT, TextAlign.CENTER, TextAlign.RIGHT})
+//    @Retention(RetentionPolicy.SOURCE)
+    public interface TextAlign {
 
         int LEFT = 0;
         int CENTER = 1;

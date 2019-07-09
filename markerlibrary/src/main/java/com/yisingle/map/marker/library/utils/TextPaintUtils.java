@@ -6,8 +6,6 @@ import android.graphics.Paint;
 import android.graphics.PathEffect;
 import android.graphics.Shader;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.text.TextPaint;
 
 /**
@@ -44,11 +42,11 @@ public class TextPaintUtils {
         return this;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public TextPaintUtils setTextElegantTextHeight(boolean elegant) {
-        textPaint.setElegantTextHeight(elegant);
-        return this;
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//    public TextPaintUtils setTextElegantTextHeight(boolean elegant) {
+//        textPaint.setElegantTextHeight(elegant);
+//        return this;
+//    }
 
     public TextPaintUtils setTextFakeBoldText(boolean fakeBoldText) {
         textPaint.setFakeBoldText(fakeBoldText);
@@ -65,18 +63,18 @@ public class TextPaintUtils {
         return this;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public TextPaintUtils setTextFontFeatureSettings(String settings) {
-        textPaint.setFontFeatureSettings(settings);
-        return this;
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//    public TextPaintUtils setTextFontFeatureSettings(String settings) {
+//        textPaint.setFontFeatureSettings(settings);
+//        return this;
+//    }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public TextPaintUtils setTextFontVariationSettings(String fontVariationSettings) {
-        textPaint.setFontVariationSettings(fontVariationSettings);
-        return this;
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+//    public TextPaintUtils setTextFontVariationSettings(String fontVariationSettings) {
+//        textPaint.setFontVariationSettings(fontVariationSettings);
+//        return this;
+//    }
 
 
     /**
@@ -90,11 +88,11 @@ public class TextPaintUtils {
         return this;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public TextPaintUtils setTextLetterSpacing(float letterSpacing) {
-        textPaint.setLetterSpacing(letterSpacing);
-        return this;
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//    public TextPaintUtils setTextLetterSpacing(float letterSpacing) {
+//        textPaint.setLetterSpacing(letterSpacing);
+//        return this;
+//    }
 
 
     public TextPaintUtils setTextLinearText(boolean linearText) {
@@ -146,7 +144,7 @@ public class TextPaintUtils {
      * @param maxTextLength
      * @return
      */
-    public static float getMaxTextWidth(@NonNull Paint paint, int maxTextLength) {
+    public static float getMaxTextWidth(Paint paint, int maxTextLength) {
         StringBuilder measureText = new StringBuilder();
         for (int i = 0; i < maxTextLength; i++) {
             measureText.append("徐");

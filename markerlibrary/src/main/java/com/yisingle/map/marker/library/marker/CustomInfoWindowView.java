@@ -1,12 +1,10 @@
 package com.yisingle.map.marker.library.marker;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.amap.api.maps.model.Marker;
 import com.yisingle.map.marker.library.R;
 import com.yisingle.map.marker.library.utils.YiSingleDeBug;
@@ -34,12 +32,11 @@ class CustomInfoWindowView {
 
         private Context context;
 
-        private @LayoutRes
-        int layoutId;
+        private int layoutId;
 
         private MapInfoWindowViewHolder viewHolder;
 
-        public BaseInfoWindowView(@LayoutRes int layoutId, W infoData) {
+        public BaseInfoWindowView(int layoutId, W infoData) {
             this.layoutId = layoutId;
             this.infoData = infoData;
 

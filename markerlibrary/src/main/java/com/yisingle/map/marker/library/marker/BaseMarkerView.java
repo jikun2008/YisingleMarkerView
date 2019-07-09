@@ -1,9 +1,6 @@
 package com.yisingle.map.marker.library.marker;
 
 import android.content.Context;
-import android.support.annotation.IntRange;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +45,7 @@ public abstract class BaseMarkerView<P extends BaseMarkerParam, W> extends Abstr
     private ThreadPoolExecutor threadPoolExecutor;
 
 
-    protected BaseMarkerView(@NonNull Context context, @NonNull AMap amap, @NonNull P param) {
+    protected BaseMarkerView(Context context, AMap amap, P param) {
         super(context, amap);
         this.param = param;
         //线程池  采用  线程池数为1 的
@@ -102,7 +99,7 @@ public abstract class BaseMarkerView<P extends BaseMarkerParam, W> extends Abstr
 
 
     @Override
-    public void bindInfoWindowView(@NonNull BaseInfoWindowView<W> infoWindowView) {
+    public void bindInfoWindowView(BaseInfoWindowView<W> infoWindowView) {
         this.infoWindowView = infoWindowView;
         if (null == infoWindowView) {
             Log.e("BaseMarkerView", "BaseMarkerView please do not setInfoWindowView(null)");
@@ -268,9 +265,9 @@ public abstract class BaseMarkerView<P extends BaseMarkerParam, W> extends Abstr
     /**
      * zoom - 缩放级别，[3-20]。
      *
-     * @param zoom zoom - 缩放级别，[3-20]。
+     * @param zoom zoom - 缩放级别，[3-20]。 @IntRange(from = 3, to = 20)
      */
-    public void moveCamera(@IntRange(from = 3, to = 20) int zoom) {
+    public void moveCamera(int zoom) {
         if (null != getAmap() && null != getPosition()) {
             getAmap().moveCamera(CameraUpdateFactory.newLatLngZoom(getPosition(), zoom));
         } else {
@@ -291,12 +288,11 @@ public abstract class BaseMarkerView<P extends BaseMarkerParam, W> extends Abstr
 
         private Context context;
 
-        private @LayoutRes
-        int layoutId;
+        private int layoutId;
 
         private MapInfoWindowViewHolder viewHolder;
 
-        public BaseInfoWindowView(@LayoutRes int layoutId, W infoData) {
+        public BaseInfoWindowView(int layoutId, W infoData) {
             this.layoutId = layoutId;
             this.infoData = infoData;
 

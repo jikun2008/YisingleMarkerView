@@ -5,9 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
+
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
@@ -36,7 +34,7 @@ public class TextMarkerView<W> extends BaseMarkerView<TextMarkerParam, W> {
     private Marker textMarker;
 
 
-    private TextMarkerView(@NonNull Context context, @NonNull AMap amap, @NonNull TextMarkerParam param) {
+    private TextMarkerView(Context context, AMap amap, TextMarkerParam param) {
         super(context, amap, param);
     }
 
@@ -356,7 +354,7 @@ public class TextMarkerView<W> extends BaseMarkerView<TextMarkerParam, W> {
     }
 
 
-    private void translateCanvas(@TextMarkerParam.TextAlign int align, Canvas canvas) {
+    private void translateCanvas(int align, Canvas canvas) {
         switch (align) {
             case TextMarkerParam.TextAlign.LEFT:
                 canvas.translate(getParam().getPaddingLeftOrRight(), 0);
@@ -400,7 +398,7 @@ public class TextMarkerView<W> extends BaseMarkerView<TextMarkerParam, W> {
     public final static class Builder extends BaseMarkerBuilder<Builder, TextMarkerParam> {
 
 
-        public Builder(@NonNull Context context, @NonNull AMap map) {
+        public Builder(Context context, AMap map) {
             super(context, map);
         }
 
@@ -423,7 +421,7 @@ public class TextMarkerView<W> extends BaseMarkerView<TextMarkerParam, W> {
         }
 
 
-        public Builder setTextPaint(@NonNull TextPaint textPaint) {
+        public Builder setTextPaint(TextPaint textPaint) {
             getParam().setTextPaint(textPaint);
             return this;
         }
@@ -450,13 +448,21 @@ public class TextMarkerView<W> extends BaseMarkerView<TextMarkerParam, W> {
             return this;
         }
 
-        public Builder setTextRowSpaceMult(@FloatRange(from = 1f) float textSpaceMult) {
+        /**
+         * @param textSpaceMult @FloatRange(from = 1f)
+         * @return Builder
+         */
+        public Builder setTextRowSpaceMult(float textSpaceMult) {
             getParam().setTextRowSpaceMult(textSpaceMult);
             return this;
         }
 
 
-        public Builder setTextRowSpaceAdd(@IntRange(from = 0) int textSpaceAdd) {
+        /**
+         * @param textSpaceAdd @IntRange(from = 0)
+         * @return Builder
+         */
+        public Builder setTextRowSpaceAdd(int textSpaceAdd) {
             getParam().setTextRowSpaceAdd(textSpaceAdd);
             return this;
         }
@@ -496,7 +502,11 @@ public class TextMarkerView<W> extends BaseMarkerView<TextMarkerParam, W> {
         }
 
 
-        public Builder setTextAlign(@TextMarkerParam.TextAlign int algin) {
+        /**
+         * @param algin @TextMarkerParam.TextAlign
+         * @return Builder
+         */
+        public Builder setTextAlign(int algin) {
             getParam().setAlign(algin);
 
             return this;
