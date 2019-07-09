@@ -21,7 +21,7 @@
 
 
 	dependencies {
-	        implementation 'com.github.jikun2008:YisingleMarkerView:v1.0.3'
+	        implementation 'com.github.jikun2008:YisingleMarkerView:v1.0.4'
 	}
 	
 ```
