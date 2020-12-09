@@ -2,11 +2,14 @@ package com.yisingle.map.marker;
 
 
 import android.os.Bundle;
+import android.util.Log;
 
+import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.LatLngBounds;
+import com.amap.api.maps.model.Marker;
 import com.yisingle.map.marker.library.marker.BaseMarkerView;
 import com.yisingle.map.marker.library.view.PointMarkerView;
 import com.yisingle.map.marker.library.viewholder.MapInfoWindowViewHolder;
@@ -31,6 +34,13 @@ public class MainActivity extends BaseMapActivity {
         setContentView(R.layout.activity_main);
         mapView = findViewById(R.id.textureMapView);
         initMapView(savedInstanceState, mapView);
+        mapView.getMap().setOnMarkerClickListener(new AMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Log.e("测试代码","测试代码");
+                return false;
+            }
+        });
 
 
         startPointMarkerView = new PointMarkerView.Builder(getApplicationContext(), getAmap())

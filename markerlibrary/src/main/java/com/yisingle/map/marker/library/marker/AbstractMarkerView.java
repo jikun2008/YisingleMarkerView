@@ -425,7 +425,9 @@ public abstract class AbstractMarkerView<P extends BaseMarkerParam> extends Base
 
         //position 坐标
         MarkerOptions markerOptions = new MarkerOptions();
-        param.getOptions().position(marker.getPosition());
+        if (null != marker) {
+            param.getOptions().position(marker.getPosition());
+        }
         markerOptions.position(param.getOptions().getPosition());
         //position 坐标
         //icon 图片
