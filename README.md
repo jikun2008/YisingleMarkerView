@@ -43,6 +43,7 @@ private LatLng startlatLng = new LatLng(30.65769, 104.062388);
         });
         startPointMarkerView.addToMap();
         startPointMarkerView.showInfoWindow("开始");
+//MapInfoWindowViewHolder 中的布局的setOnClickListener点击事件是不能响应的。因为布局是生成了一个bitmap 添加到marker上,能响应marker的点击事件
 
 ```
 github:https://github.com/jikun2008/YisingleMarkerView
